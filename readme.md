@@ -19,7 +19,7 @@ From the command line
 
 `npm start`
 
-# Feedback form and the mail sender doesn`t work offline. 
+# Feedback form and the mail sender doesn't work offline. 
 
 ### if you want to use them generate a key from [sendgrid](https://sendgrid.com/) and mongoDB at [mLab](https://mlab.com/) both are free
 
