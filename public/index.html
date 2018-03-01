@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- FLAG ICON CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="./public/styles.css">
+    <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous">
+        </script>
+
+    <title>Chat App</title>
+</head>
+
+<body>
+
+    <div id="nickname-box">
+        <form>
+            <input id="userName" type="text" placeholder="Enter your nickname">
+            <button type="submit" value="Enter">Enter</button>
+            <span></span>
+        </form>
+    </div>
+
+    <div id="chat-container">
+
+        <header>
+            <h3>Chat app built with node and socket.io</h3>
+        </header>
+
+        <nav id="room-list">
+            <h5>Rooms</h5>
+            <ul>
+                <li id="Lobby">Lobby</li>
+                <li id="Music">Music</li>
+                <li id="Movies">Movies</li>
+            </ul>
+        </nav>
+
+        <!-- <nav id="tab-list">
+            <div>
+                <button>Lobby</button>
+                <button>Lobby</button>
+                <button>Lobby</button>
+                <button>Lobby</button>
+            </div> -->
+            <!-- <button>Music</button>
+            <button>Movies</button> -->
+        </nav>
+
+        <section id="admin-messages">
+            <h3></h3>
+        </section>
+
+        <main id="chat-box">
+            <!-- <p id="user-typing">asaf is typing</p> -->
+            <ul id="messages-box" class="Lobby-room"></ul>
+            <ul id="messages-box" class="Music-room"></ul>
+            <ul id="messages-box" class="Movies-room"></ul>
+        </main>
+
+        <section id='online-users'>
+            <h5>Users</h5>
+            <ul></ul>
+        </section>
+
+        <footer id="input-box">
+            <input id="m" autocomplete="off" />
+            <button type="submit">Send</button>
+        </footer>
+
+        <aside class="create-room">
+            <button>Open</button>
+        </aside>
+
+        <aside class="left2">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+        </aside>
+
+        <aside class="right1">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+        </aside>
+
+        <aside class="feedback">
+            <button>Feedback</button>
+        </aside>
+    </div>
+
+    <div>
+        <fieldset class="create-room-box">
+            
+            <label for="name">Room name </label>
+            <br>
+            <span></span>
+            <input type="text" id="room-name" placeholder="Room name" required>
+            <br>
+            <input type="submit" value="Open">
+            <input type="button" value="Cancel">
+        </fieldset>
+    </div>
+
+
+    <section class="contact">
+        <form action="/feedback" method="POST">
+            <fieldset>
+                <h3>Leave a feedback</h3>
+                <i class="fa fa-close"></i>
+                <br>
+                <label for="name">Name: </label>
+                <br>
+                <input type="text" id="feedback-name" placeholder="Name" required>
+                <br>
+                <label for="email">Email: </label>
+                <br>
+                <input type="email" id="feedback-email" placeholder="Email (Optional)">
+                <br>
+                <label for="email">Message: </label>
+                <br>
+                <textarea id="feedback-message" placeholder="Suggetions, Questions,
+                Features you would like to see,
+                                    or just a message..."></textarea>
+                <br>
+
+                <div class="star-rating">
+                    <div class="star-rating__wrap">
+                        <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
+                        <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="1337!!!"></label>
+                        <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                        <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="I like it!"></label>
+                        <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                        <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="Decent"></label>
+                        <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                        <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="You can do better..."></label>
+                        <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1" checked>
+                        <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="WTF?"></label>
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+                <input type="button" value="Cancel">
+            </fieldset>
+        </form>
+    </section>
+
+    <div class="form-success">
+        <h3>Thank you for the feedback!</h3>
+        <input type="submit" value="Close">
+    </div>
+
+    <div class="form-error">
+        <h3>An Error has occurred, Please try again!</h3>
+        <input type="submit" value="OK">
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/client.js"></script>
+    <!-- <script src="./client.js"></script> -->
+</body>
+
+</html>
