@@ -1,4 +1,3 @@
-// TODO use a reverse proxy cache to improve performance of serving static assets.
 const express = require('express'),
     app = express(),
     server = require('http').Server(app),
