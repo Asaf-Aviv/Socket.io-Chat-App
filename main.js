@@ -22,7 +22,7 @@ const express = require('express'),
 // });
 // 
 // Feedback forms saved into my DB at mLab.com its free if you want to try 
-mongoose.connect(process.env.MONGO_ADMIN);
+// mongoose.connect(process.env.MONGO_ADMIN);
 
 app
 .use('/public', express.static(__dirname + '/public'))
