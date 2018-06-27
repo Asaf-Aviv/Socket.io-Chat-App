@@ -30,12 +30,3 @@ From the command line
   * Admin messages
   * Feedback sent is saved in mongoDB
   * Mail sender
-  
-* TODO
-  * Tab list for rooms and the ability to stay in more then one room at a time
-  * Private chat
-  * Group chat
-  * Send files
-  * Registration system
-  * Nickname colors
-  * Improve UI
